@@ -4,6 +4,7 @@
     --body-bg-color: #22212C;
     --text-color: #837E9F;
     --bg-cards: #302F3D;
+    --bg-cards-hover: #40305D;
     --bg-techs: #CB92B1;
 }
 
@@ -71,9 +72,61 @@ body {
 }
 
 .card-projects {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem 4rem 1rem 1rem;
+}
+
+@keyframes scrollCards {
+    0% {
+        transform: translateX(0%);
+    }
+
+    20% {
+        transform: translateX(-100%);
+    }
+
+    40% {
+        transform: translateX(-200%);
+    }
+
+    60% {
+        transform: translateX(-300%);
+    }
+
+    80% {
+        transform: translateX(-400%);
+    }
+
+    100% {
+        transform: translateX(-500%);
+    }
+}
+
+.card-projects::-webkit-scrollbar {
+    display: none;
+}
+
+.project {
+    min-width: 340px;
+    padding: 20px;
+    align-items: start;
+    overflow: hidden;
+    animation: scrollCards 10s;
+}
+
+.project:hover {
+    transition: 0.5s;
+    transform: scale(1.05);
+    cursor: pointer;
+    background-color: var(--bg-cards-hover);
 }
 
 .my-projects {
@@ -92,40 +145,146 @@ a {
     align-items: start;
 }
 
-.link{
+.link {
     padding: 10px;
 }
 
-.link-title{
+.link-title {
     font-size: 0.9rem;
     font-weight: 300;
     margin: 15px;
 }
 
-.project{
-    padding: 20px;
-    align-items: start;
-}
-.title-project, .description-project{
+.title-project, .description-project {
     margin: 5px;
 }
-.title-project > span{
-    padding: 15px;
+
+.title-project>span {
+    padding: 10px;
 }
-.description-project{
+
+.description-project {
     font-size: 0.7rem;
     font-weight: 300;
+    padding: 15px 0;
 }
-.data{
-    margin: 10px;
+
+.data {
+    margin: 0 20px 0 0;
 }
-.details-project{
+
+i {
+    font-size: 1.1rem;
+    margin: 0 7px 0 0;
+}
+
+.lang {
+    border: 1px solid var(--text-color);
+    border-radius: 100%;
+    font-size: 0.7rem;
+    color: #f2e663;
+    background-color: #f2e663;
+}
+
+.details-project {
     display: flex;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 300;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
-/*ajustado ao fim*/
-.linguagem > span{
-    padding: 5px;
-    margin: 5px;
+
+.card-post {
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 25px;
+}
+
+.card-post-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 20px;
+}
+
+.card-post-content>span {
+    padding: 0;
+    margin-top: -15px;
+    font-size: 0.7rem;
+}
+
+.card-post-tags {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.card-staks, .card-xp, .card-education {
+    align-items: flex-start;
+}
+
+.techs {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    gap: 1rem;
+    box-sizing: border-box;
+    min-height: 200px;
+}
+
+
+.tech {
+    display: flex;
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    font-variant-caps: all-petite-caps;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-techs);
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80px;
+    height: 30px;
+}
+
+.card-xp, .card-education {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.lista-xp, .lista-edu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.linha-xp, .linha-edu {
+    margin: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.linha-xp>h4, .linha-edu>h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+}
+
+.linha-xp>p, .linha-edu>p {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    font-variant-caps: all-small-caps;
+    font-size: 0.8rem;
 }
