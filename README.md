@@ -1,3 +1,3 @@
 # desafio-portifolio
 
-[![Desafio Portifolio](caminho/para/website.png)](https://desafio-portifolio-castelogui.vercel.app/)
+[![Desafio Portifolio](./assets/project.png)](https://desafio-portifolio-castelogui.vercel.app/)
